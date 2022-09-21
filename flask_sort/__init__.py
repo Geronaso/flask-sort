@@ -1,5 +1,6 @@
 """Init file, load the configuration and default methods used in the API"""
 
+import os
 from flask import Flask, json
 from werkzeug.exceptions import HTTPException
 
@@ -9,7 +10,7 @@ def create_app(test_config=None):
     """Create and configure the app"""
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
-        SECRET_KEY='dev',
+        SECRET_KEY=os.environ['API_KEY'],
     )
     # In case of config.py file
     if test_config is None:
