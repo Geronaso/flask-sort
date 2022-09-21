@@ -6,8 +6,8 @@ Flask-sort is a simple API that counts the vowels of a string and sort array str
 * Order a list of arrays alphabetically (it can be reversed)
 
 ## Requirements
-Flask >= 2.2.2
-Python >= 3.7
+Flask >= 2.2.2<br/>
+Python >= 3.7<br/>
 pytest >= 7.1.3
 
 ## Quickstart
