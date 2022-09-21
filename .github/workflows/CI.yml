@@ -2,6 +2,11 @@ name: Pipeline
 
 on: [push]
 
+env:
+  AZURE_WEBAPP_NAME: flask-sort # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
+  API_KEY:  ${{ secrets.API_KEY}}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -23,7 +28,13 @@ jobs:
       run: |
         pylint $(git ls-files '*.py')
     - name: Test with pytest
-      env:
-        API_KEY:  ${{ secrets.API_KEY}}
       run: |
         python3 -m pytest
+    - name: Building web app
+      uses: azure/appservice-build@v2
+    - name: Deploy web App using GH Action azure/webapps-deploy
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
