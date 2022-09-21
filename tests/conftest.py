@@ -4,7 +4,7 @@ import pytest
 from flask_sort import create_app
 
 @pytest.fixture
-def app_sort():
+def flask_sort_app():
     """calls the app to use instead of using the local development app"""
     app = create_app()
     return app
