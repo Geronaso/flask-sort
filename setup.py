@@ -1,6 +1,6 @@
-from setuptools import setup
+"""Default setup file for deployment"""
 
-from flask_sort.models import vowel_count
+from setuptools import setup
 
 setup(
     name='flask_sort',
@@ -10,9 +10,3 @@ setup(
         'flask',
     ],
 )
-
-# curl -X POST http://127.0.0.1:5000/vowel_count -H 'Content-Type: application/json' -d '{"words":["batman", "robin", "coringa"]}'
-
-# curl -X POST http://127.0.0.1:5000/sort -H 'Content-Type: application/json' -d '{"words":["batman", "robin", "coringa"],"reverse":"False"}'
-
-# curl -X POST -G 'http://127.0.0.1:5000/sort' -d '{"words":["batman", "robin", "coringa"]}'
