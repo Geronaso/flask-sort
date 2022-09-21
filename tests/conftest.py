@@ -10,6 +10,6 @@ def app_sort():
     return app
 
 @pytest.fixture
-def client(app_sort):
+def client(app_client):
     """Creates a client for tests"""
-    return app_sort.test_client()
+    return app_client.test_client()
