@@ -1,4 +1,4 @@
-"""Test file for default config"""
+"""Create some configurations used in the tests files"""
 
 import pytest
 from flask_sort import create_app
@@ -7,9 +7,10 @@ from flask_sort import create_app
 def app_sort():
     """calls the app to use instead of using the local development app"""
     app = create_app()
-    return app
+    yield app
 
 @pytest.fixture
-def client(app_sort):
+def client():
     """Creates a client for tests"""
-    return app_sort.test_client()
+    app = create_app()
+    return app.test_client()
