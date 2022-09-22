@@ -11,6 +11,7 @@ import pytest
     ('words','', b'Bad Request'),
     ('wods',["batman", "coringa", "robin"], b'Bad Request'),
     ('words',["batman", "penguim", "coringa"], b'{"batman":2,"coringa":3,"penguim":3}\n'),
+    ('words',[1, "penguim", "coringa"], b'Bad Request'),
 ])
 
 # The test function that asserts the values are correct
@@ -36,6 +37,8 @@ def test_vowel_count(client, key_words, words, response_message):
     {'order': ''}, b'Bad Request'),
     ({'words': ["batman", "robin", "penguim"]}, \
     {'order': 'desc'}, b'["robin","penguim","batman"]\n'),
+    ({'words': [1, "robin", "coringa"]}, {'order': 1}, b'Bad Request'),
+    ({'words': ['bat', "robin", "coringa"]}, {'order': ''}, b'Bad Request'),
 ])
 
 # The test function that asserts the values are correct
