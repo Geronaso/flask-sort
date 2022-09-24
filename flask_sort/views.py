@@ -13,8 +13,6 @@ def route_vowel_count():
     """Vowel count Endpoint"""
     request_data = request.get_json()
     # Some basic check to check the data received.
-    # Checks if it is a list, the list is not empty,
-    # the key value is words and all values are string
     if not 'words' in request_data or not request_data['words'] \
     or not isinstance(request_data['words'], list) \
     or not all(isinstance(item, str) for item in request_data['words']):
@@ -28,8 +26,7 @@ def route_vowel_count():
 def route_sort():
     """Sort Endpoint"""
     request_data = request.get_json()
-    # The same check as the other function, instead it also checks for the key order and
-    # The order array is used to check the two specific values of order
+    # Some basic check to check the data received
     order = ['asc', 'desc']
     if not 'words' in request_data or not request_data['words'] \
     or not isinstance(request_data['words'], list) \
