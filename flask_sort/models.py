@@ -31,4 +31,3 @@ def sort(words, reverse):
 
     result = sorted(words, reverse=True)
     return result
-
