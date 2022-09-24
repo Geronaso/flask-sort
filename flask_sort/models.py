@@ -26,7 +26,9 @@ def sort(words, reverse):
     # Sort the array, the reverse flag is used for reverse sorting
     if reverse == 'asc':
         result = sorted(words, reverse=False)
+
         return result
 
     result = sorted(words, reverse=True)
     return result
+

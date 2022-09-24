@@ -14,17 +14,21 @@ pytest >= 7.1.3
 
 # Quickstart
 
+
 The application can be accessed here: <br/>
 
 https://flask-sort.azurewebsites.net/
 
 It may require some time to start the application, please open the link and a wait a little before sending requests to the endpoints.
 
+
 There is no index page, it only receives post messages at the specified endpoints.
 
 OR
 
+
 You can build it locally!
+
 
 ```
 git clone https://github.com/Geronaso/flask-sort.git
@@ -63,6 +67,7 @@ All requests needs to be of application/json type
 
 + Request (application/json)
 
+
     + Body
 ```    
         {
@@ -81,6 +86,7 @@ It runs the following steps on push.
 graph TD;
     Pylint-->Pytest;
     Pytest-->Azure_AppServices;
+
 ```
 
 
