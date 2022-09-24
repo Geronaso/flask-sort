@@ -40,33 +40,50 @@ flask --app flask_sort --debug run
 
 https://www.postman.com/foxmc/workspace/7089b35b-75bd-446f-ad12-95ac20daff93/overview
 
+Clone the postman page and execute the requests!
+
+Or test the Endpoints yourself with your favorite tool.
+
 # Endpoints
 
 All requests needs to be of application/json type
 
 ## /vowel_count
-objects:<br/>
-    'words':*Array*  An array of strings
 
-```python
-json_data= { 
-      'words' = ['array of strings'],
-      }
-```
++ Request (application/json)
 
+    + Body
+```    
+        {
+            "words": [array of strings],
+        }
+```        
 
 ## /sort
-objects:<br/>
-    'words':*Array*  An array of strings.<br/>
-    'order':*string* A string value of asc or desc fo reverse ordering the words.
-    
-```python
-json_data= { 
-      'words' = ['array of objects'],
-      'order' = 'asc'
-      }
+
++ Request (application/json)
+
+    + Body
+```    
+        {
+            "words": [array of strings],
+            "order": "asc",
+        }
+```        
+"order" supports two strings asc for alphabetical ordering or desc for reverse ordering.
+
+# Pipeline
+The pipeline is ilustrated in the CI.yml file.
+
+It runs the following steps on push.
+
+```mermaid
+graph TD;
+    Pylint-->Pytest;
+    Pytest-->Azure_AppServices;
 ```
-      
+
+
 ## Author
 Cézar Murilo (cezarmgt@gmail.com)
 
