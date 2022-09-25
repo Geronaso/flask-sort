@@ -19,7 +19,7 @@ The application can be accessed here: <br/>
 
 https://flask-sort.azurewebsites.net/
 
-It may require some time to start the application, please open the link and a wait a little before sending requests to the endpoints.
+It may require some time to start the application, please open the link and wait a little before sending requests to the endpoints.
 
 
 There is no index page, it only receives post messages at the specified endpoints.
@@ -55,6 +55,7 @@ All requests needs to be of application/json type
 ## /vowel_count
 
 + Request (application/json)
++ Method [POST]
 
     + Body
 ```    
@@ -65,8 +66,9 @@ All requests needs to be of application/json type
 
 ## /sort
 
-+ Request (application/json)
 
++ Request (application/json)
++ Method [POST]
 
     + Body
 ```    
@@ -89,6 +91,11 @@ graph TD;
 
 ```
 
+Pylint checks the written code for bad practices, errors and suspicious constructs.
+
+Pytest runs the written tests for the endpoints and the core system.
+
+Azure_AppServices upload the application to production at Azure.
 
 ## Author
 Cézar Murilo (cezarmgt@gmail.com)
